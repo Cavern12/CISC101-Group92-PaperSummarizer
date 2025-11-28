@@ -1,3 +1,4 @@
+> Branch v2 note: this version adds summary_level logic and detailed bullet lists.
 # Module 02 — Section Loop
 # CHANGE LOG (v2)
 - Added summary_level variable.
