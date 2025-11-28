@@ -1,36 +1,16 @@
 # Module 03 — Guardrails
-# CHANGE LOG (v2)
-- Added strict evidence mode.
-- Added standardized missing/short section warnings.
-- Strengthened hallucination controls.
 
-## Evidence Mode
-evidence_mode = "default" | "strict"
+## Purpose
+Provide basic safety rules so the summarizer stays accurate and does not hallucinate.
 
-IF evidence_mode == "strict":
-   • Only include information explicitly present in the source text.
-   • No inferred results.
-   • No invented equations.
-   • If insufficient evidence:
-         output:
-         "The source text does not provide enough detail to summarize this section in strict evidence mode."
+## Rules
 
-## Missing/Short Section Rules
-IF section missing:
-     output:
-     "Section skipped: no usable text was provided."
+- Only summarize information that appears in the paper text.
+- Do not invent extra sections, results, or citations.
+- If a section has very little text, mention that the summary may be incomplete.
+- If a section is completely missing, state clearly that there was no text to summarize.
+- Keep the academic tone consistent across sections.
 
-IF section < 50 words:
-     output:
-     "Section very short: summary may be incomplete."
-
-## Hallucination Safeguards
-- Never fabricate content.
-- Never invent subsections, citations, datasets, or methods.
-- Only refer to entities explicitly present in the text.
-
-## Chunking Strategy (PS2 Requirement)
-For long papers:
-1. Split text into chunks below model token limits.
-2. Summarize each chunk.
-3. Merge into hierarchical summaries.
+## Long Papers
+For very long papers, the system may break the text into smaller pieces and summarize each one
+before combining them into an overall summary.
