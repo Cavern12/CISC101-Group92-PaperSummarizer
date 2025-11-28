@@ -1,3 +1,4 @@
+> Branch v2 note: this version adds strict evidence mode and standardized warnings.
 # Module 03 — Guardrails
 # CHANGE LOG (v2)
 - Added strict evidence mode.
